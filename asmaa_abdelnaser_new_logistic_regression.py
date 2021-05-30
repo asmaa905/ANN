@@ -122,7 +122,7 @@ def predict(w, b, X):
     
     return Y_prediction
 
-def model(X_train, Y_train, X_test, Y_test, iters = 1000, sigma = 0.005, print_cost = False):
+def model(X_train, Y_train, X_test, Y_test, iters = 2000, sigma = 0.006, print_cost = False):
     
     #initialize
     w, b = initialize(X_train.shape[0])  
@@ -141,6 +141,7 @@ def model(X_train, Y_train, X_test, Y_test, iters = 1000, sigma = 0.005, print_c
 
     #   accuracy
     print('Neural Network')
+    
     print(" accuracy of test: {} %".format(100 - np.mean(np.abs(Y_prediction_test - Y_test)) * 100))
     print(" accuracy of train: {} %".format(100 - np.mean(np.abs(Y_prediction_train - Y_train)) * 100))
 
@@ -155,7 +156,7 @@ def model(X_train, Y_train, X_test, Y_test, iters = 1000, sigma = 0.005, print_c
     
     return d
 
-d = model(train_set_x, train_set_y, test_set_x, test_set_y, iters = 1000, sigma = 0.001, print_cost = True)
+d = model(train_set_x, train_set_y, test_set_x, test_set_y, iters = 2500, sigma = 0.006, print_cost = True)
 
 
 #LogisticRegression
