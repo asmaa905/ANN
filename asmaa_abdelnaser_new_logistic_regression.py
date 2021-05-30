@@ -122,7 +122,7 @@ def predict(w, b, X):
     
     return Y_prediction
 
-def model(X_train, Y_train, X_test, Y_test, iters = 2000, sigma = 0.5, print_cost = False):
+def model(X_train, Y_train, X_test, Y_test, iters = 1000, sigma = 0.005, print_cost = False):
     
     #initialize
     w, b = initialize(X_train.shape[0])  
@@ -155,14 +155,14 @@ def model(X_train, Y_train, X_test, Y_test, iters = 2000, sigma = 0.5, print_cos
     
     return d
 
-d = model(train_set_x, train_set_y, test_set_x, test_set_y, iters = 2000, sigma = 0.005, print_cost = True)
+d = model(train_set_x, train_set_y, test_set_x, test_set_y, iters = 1000, sigma = 0.001, print_cost = True)
 
 
 #LogisticRegression
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import MinMaxScaler,Normalizer
 
-log_reg = LogisticRegression(C=1000.0, random_state=0)
+log_reg = LogisticRegression(C=1.0, random_state=0)
 log_reg.fit(train_set_x.T, train_set_y.T.ravel())
 
 log_reg.coef_.shape
